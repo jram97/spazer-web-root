@@ -1,0 +1,79 @@
+.topbar-login-button {
+  /* position: absolute !important; */
+  width: 132px;
+  height: 30px;
+  /* left: 1158px; */
+  /* top: 30px; */
+  color: #fff !important;
+  border: 1px solid #acfe00 !important;
+  box-sizing: border-box !important;
+  border-radius: 47.5px !important;
+}
+
+.topbar-logo {
+  width: 180px;
+  height: 113px;
+
+  object-fit: contain;
+}
+
+.topbar-header {
+  width: 100%;
+  z-index: 10;
+  box-shadow: none !important;
+  background-color: transparent;
+  position: fixed;
+}
+
+.top-bar-transition-backwards {
+  animation: topbar-transition 1s ease-out;
+  animation-fill-mode: backwards;
+}
+
+.topbar-transition {
+  animation: topbar-transition 0.2s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes topbar-transition {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: black;
+  }
+}
+
+.topbar-options {
+  /* position: absolute !important; */
+  font-family: Lato;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  text-align: right !important;
+  margin-right: 10px !important;
+
+  color: #ffffff !important;
+}
+/* 
+.topbar-register-button {
+  width: 73px !important;
+  height: 19px !important;
+  left: 1033px !important;
+  top: 36px !important;
+}
+
+.topbar-download-button {
+  width: 68px !important;
+  height: 19px !important;
+  left: 937px !important;
+  top: 36px !important;
+}
+
+.topbar-help-button {
+  width: 44px !important;
+  height: 19px !important;
+  left: 865px !important;
+  top: 36px !important;
+} */

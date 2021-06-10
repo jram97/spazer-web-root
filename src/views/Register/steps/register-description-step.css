@@ -1,0 +1,72 @@
+.register-slots-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.register-description-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20, 50;
+}
+
+.register-description-slots-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+
+.register-description-add-slot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  padding: 10px 0;
+}
+
+.register-slots-slot-card {
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: black 1px solid;
+}
+
+.register-description-content-center {
+  justify-content: center;
+}
+
+.register-description-features-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+}
+
+.register-description-features-item {
+  margin-right: 10px;
+}
+
+@media (min-width: 960px) {
+  .register-description-slots-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: unset;
+  }
+
+  .register-description-add-slot-container {
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .register-description-features-container {
+    overflow-x: unset;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

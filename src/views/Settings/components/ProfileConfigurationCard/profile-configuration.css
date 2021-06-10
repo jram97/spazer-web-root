@@ -1,0 +1,6 @@
+.profile-setup-background-image {
+  /* clip-path: ellipse(47% 25% at 52% 52%); */
+  position: absolute;
+  width: 100%;
+  top: -100px;
+}

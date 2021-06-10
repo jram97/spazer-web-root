@@ -1,0 +1,118 @@
+.landing-form-container {
+  width: 100%;
+  height: 1300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.landing-form-spazer-logo {
+  width: 180px;
+  height: 113px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.landing-form-success-message {
+  margin-top: 30px !important;
+}
+
+.landing-form-box-container {
+  /* position: absolute; */
+  width: 648px;
+  height: auto;
+  padding: 24px;
+  /* left: 405px; */
+  /* top: 2817px; */
+
+  margin-bottom: 100px;
+  background: #e5e5e5;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.25);
+}
+
+.landing-form-register-title {
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 30px !important;
+  line-height: 36px !important;
+  /* identical to box height */
+  color: #262626 !important;
+}
+
+.landing-form-register-sub-title {
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 14px !important;
+  line-height: 17px !important;
+
+  color: #717171 !important;
+  margin-top: 14px !important;
+}
+
+.landing-form-name-field {
+  margin-top: 55px !important;
+}
+
+.landing-form-email-field {
+  margin-top: 46px !important;
+}
+
+.landing-form-register-type-of-business {
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+.landing-form-register-contact-container {
+  margin-top: 23px;
+}
+
+.landing-form-terms-checkbox {
+  margin-left: 10px;
+}
+
+.landing-form-terms-and-register-container {
+  margin-top: 80px;
+}
+
+.landing-form-register-button {
+  background: #acfe00 !important;
+  color: #000 !important;
+}
+
+.landing-form-terms-and-register-right-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.landing-form-terms-and-register-left-item {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  .landing-form-terms-and-register-right-item {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  .landing-form-terms-and-register-left-item {
+    align-items: flex-end;
+  }
+
+  .landing-form-terms-and-register-right-item {
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px !important;
+  }
+  .landing-form-box-container {
+    /* position: absolute; */
+    /* width: 648px; */
+    padding: 69px 64px 45px 78px;
+    height: unset;
+  }
+}

@@ -1,0 +1,242 @@
+.landing-header-text {
+  position: absolute;
+  width: 634px;
+  height: 173px;
+  left: 150px;
+  top: 232px;
+  text-align: left !important;
+  margin-bottom: 10px !important;
+  margin-top: 25px !important;
+
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 64px !important;
+  line-height: 65px !important;
+
+  color: #ffffff !important;
+}
+
+.anding-release-counter-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  width: 100%;
+  height: auto;
+}
+
+.landing-counter-text {
+  height: 173px;
+  left: 150px;
+  top: 232px;
+  text-align: left !important;
+  margin-bottom: 10px !important;
+  margin-top: 25px !important;
+
+  font-size: 40px !important;
+  color: white !important;
+  line-height: 50px !important;
+  height: auto !important;
+}
+
+.landing-counter-indicator-label {
+  height: auto;
+  font-size: 40px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.landing-counter-indicators-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.landing-counter-indicator-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.landing-left-item-grid {
+  padding: 100px 24px 0px 24px;
+  align-items: flex-start;
+}
+
+.landing-right-item-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-first-container {
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  background-image: url('./../../../assets/images/landing_first_bg.png');
+  height: 784px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.landing-subheader-text {
+  position: absolute;
+  width: 249px;
+  height: 40px;
+  left: 150px;
+  top: 415px;
+  margin-bottom: 10 !important;
+
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 25px !important;
+  line-height: 30px !important;
+
+  color: #ffffff !important;
+}
+
+.landing-preview-app-image-one {
+  position: unset;
+  /* width: 432px; */
+  /* height: 611px; */
+  height: 750px;
+  left: 858px;
+  top: 117px;
+  margin-top: 60px;
+}
+
+.landing-download-app-store-button {
+  position: absolute !important;
+  width: 154px;
+  height: 47px;
+  left: 150px;
+  top: 477px;
+}
+
+.landing-download-play-store-button {
+  position: absolute !important;
+  width: 154px;
+  height: 47px;
+  left: 326px;
+  top: 477px;
+  margin-left: 0;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.landing-download-app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+.landing-item-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (max-width: 1292px) {
+  .landing-preview-app-image-one {
+    position: relative !important;
+    /* width: 355px !important; */
+    height: 600;
+    left: unset;
+    top: unset;
+    margin-bottom: 56px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .landing-header-text {
+    position: relative;
+    width: unset;
+    text-align: center;
+    height: unset;
+    top: unset;
+    left: unset;
+  }
+
+  .landing-subheader-text {
+    position: relative;
+    width: unset;
+    height: unset;
+    left: unset;
+    top: unset;
+    text-align: center;
+    margin-top: 10px !important;
+  }
+
+  .landing-download-app-store-button {
+    position: relative !important;
+    width: unset;
+    height: unset;
+    left: unset;
+    top: unset;
+    margin-right: 15px !important;
+    padding: 0 !important;
+    /* margin-top: 22px !important; */
+  }
+
+  .landing-download-play-store-button {
+    position: relative !important;
+    width: unset;
+    height: unset;
+    left: unset;
+    top: unset;
+    padding: 0 !important;
+
+    /* margin-top: 10px !important; */
+  }
+
+  .landing-first-container {
+    height: unset;
+  }
+}
+
+@media (min-width: 360px) {
+  .landing-download-app-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 24px;
+  }
+  .landing-download-play-store-button {
+    margin-left: unset;
+    display: unset;
+    justify-content: unset;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .landing-release-counter-container {
+    position: absolute;
+    left: 150px;
+    top: 530px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+/* @media (max-width: 992px) {
+  .landing-preview-app-image-one {
+    position: static;
+    width: 432px;
+    height: 611px;
+    left: 858px;
+    top: 117px;
+  }
+} */
+
+/* Large devices (large desktops, 1200px and up) */
+/* @media (max-width: 1300px) {
+  .landing-preview-app-image-one {
+    position: static;
+    width: 432px;
+    height: 611px;
+    left: 858px;
+    top: 117px;
+  }
+} */

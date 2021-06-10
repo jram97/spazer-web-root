@@ -1,0 +1,112 @@
+.landing-footer-container {
+  width: 100%;
+  height: auto;
+  background-color: #272727;
+  padding-top: 87px;
+  padding-bottom: 44px;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.landing-footer-apps-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: scroll;
+  padding-left: 24px;
+  padding-right: 24px;
+  /* padding-left: 600px; */
+  /* justify-content: space-around; */
+  margin-top: 15px !important;
+}
+
+.landing-footer-app-image {
+  object-fit: contain;
+  width: 235px;
+  height: 148px;
+}
+
+.landing-footer-sub-container {
+  height: auto;
+
+  background-color: #1c1c1c;
+  margin-top: 54px;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-footer-contact-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landing-footer-contact-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 158.208px;
+  margin-bottom: 15px;
+}
+
+.landing-footer-contact-info-text {
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 17px !important;
+  line-height: 20px !important;
+  text-align: right !important;
+  margin-top: 17px !important;
+  color: #f7f7f7 !important;
+}
+
+.landing-footer-social-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 24px 0 24px;
+}
+
+.landing-footer-app-image-jogo {
+  width: 200px;
+  margin-left: 50px;
+  object-fit: contain;
+}
+
+@media (min-width: 960px) {
+  .landing-footer-apps-container {
+    flex-direction: row;
+    overflow-x: unset;
+    padding-left: 0;
+    justify-content: space-around;
+  }
+  .landing-footer-app-image {
+    width: 150px;
+  }
+  .landing-footer-app-image-jogo {
+    width: 135px;
+  }
+}
+
+@media (min-width: 900px) {
+  .landing-footer-contact-container {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1300px) {
+  .landing-footer-app-image {
+    width: 235px;
+  }
+  .landing-footer-app-image-jogo {
+    width: 200px;
+  }
+}
+
+/*  135px */

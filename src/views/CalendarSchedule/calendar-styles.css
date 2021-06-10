@@ -1,0 +1,16 @@
+.fc-col-header-cell {
+  height: 50px !important;
+  vertical-align: middle !important;
+  background-color: #1d1d11 !important;
+  color: white !important;
+}
+
+.fc-button-primary {
+  background-color: #ffffff !important;
+  color: black !important;
+}
+
+.fc-button-active {
+  background-color: #1d1d1d !important;
+  color: white !important;
+}

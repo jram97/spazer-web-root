@@ -1,0 +1,24 @@
+.register-image-step-add-image-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.register-image-uploads-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  padding: 30px 0;
+}
+
+@media (max-width: 575px) {
+  .register-image-step-add-image-container {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 960px) {
+  .register-image-uploads-container {
+    overflow-x: unset;
+    flex-wrap: wrap;
+  }
+}

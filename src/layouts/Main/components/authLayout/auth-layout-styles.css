@@ -1,0 +1,39 @@
+.container {
+  /* height: 100vh; */
+}
+
+.background-image-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url('./background_image.png'); */
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.form-container {
+  height: 100vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 0;
+  padding: 150px 100px 0 100px;
+}
+
+.register-form-container {
+  margin-top: 50px !important;
+}
+
+.terms-and-conditions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px !important;
+}

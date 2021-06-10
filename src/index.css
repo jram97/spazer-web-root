@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'Circular';
+  src: local('Circular'),
+    url(./assets/fonts/CircularStd-Bold.otf) format('opentype');
+}

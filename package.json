@@ -1,0 +1,83 @@
+{
+  "name": "react-material-dashboard",
+  "author": "DeviasIO",
+  "email": "contact@devias.io",
+  "licence": "MIT",
+  "version": "0.3.0",
+  "private": false,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "@date-io/date-fns": "^1.3.13",
+    "@fullcalendar/core": "^5.0.0",
+    "@fullcalendar/daygrid": "^5.0.1",
+    "@fullcalendar/interaction": "^5.0.0",
+    "@fullcalendar/react": "^5.0.0",
+    "@fullcalendar/timegrid": "^5.0.1",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@material-ui/pickers": "^3.2.10",
+    "@react-google-maps/api": "^1.10.0",
+    "@reduxjs/toolkit": "^1.4.0",
+    "aos": "^2.3.4",
+    "awesome-debounce-promise": "^2.1.0",
+    "axios": "^0.19.2",
+    "chart.js": "^2.8.0",
+    "clsx": "^1.0.4",
+    "date-fns": "^2.14.0",
+    "fuse.js": "^6.4.1",
+    "history": "^4.9.0",
+    "moment": "^2.24.0",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
+    "rc-animate": "^3.1.0",
+    "rc-scroll-anim": "^2.7.4",
+    "rc-tween-one": "^2.7.2",
+    "react": "^16.8.6",
+    "react-async-hook": "^3.6.1",
+    "react-calendar": "^3.1.0",
+    "react-chartjs-2": "^2.7.6",
+    "react-dom": "^16.8.6",
+    "react-geocode": "^0.2.1",
+    "react-id-swiper": "^4.0.0",
+    "react-material-ui-form-validator": "^2.0.10",
+    "react-number-format": "^4.4.1",
+    "react-perfect-scrollbar": "^1.5.3",
+    "react-places-autocomplete": "^7.3.0",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.0",
+    "react-scroll": "^1.8.1",
+    "react-scroll-to": "^3.0.0-beta.6",
+    "recompose": "^0.30.0",
+    "swiper": "^6.0.3",
+    "underscore": "^1.9.1",
+    "use-constant": "^1.0.0",
+    "uuid": "^3.3.2",
+    "validate.js": "^0.13.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.1",
+    "typescript": "^3.5.1"
+  }
+}
