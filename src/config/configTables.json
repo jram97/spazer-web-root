@@ -1,0 +1,48 @@
+{
+    "sucursal": {
+        "titles": [
+            "Número de sucursal",
+            "Nombre de la sucursal"
+        ],
+        "values": [
+            "number",
+            "name"
+        ]
+    },
+    "servicio": {
+        "titles": [
+            "Nombre del servicio",
+            "Precio p/h"
+        ],
+        "values": [
+            "name",
+            "price"
+        ]
+    },
+    "servicio Meeting rooms": {
+        "titles": [
+            "Nombre del servicio",
+            "Superficie",
+            "Precio p/h"
+        ],
+        "values": [
+            "name",
+            "surfaceType",
+            "price"
+        ]
+    },
+    "servicio Complex": {
+        "titles": [
+            "Nombre del servicio",
+            "Superficie",
+            "Modo de juego",
+            "Precio p/h"
+        ],
+        "values": [
+            "name",
+            "surfaceType",
+            "gameMode",
+            "price"
+        ]
+    }
+}

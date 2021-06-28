@@ -6,7 +6,7 @@ import { RouteWithLayout } from './components';
 import { Main as MainLayout, Minimal as MinimalLayout } from './layouts';
 
 import {
-  Dashboard as DashboardView,
+  // Dashboard as DashboardView,
   ProductList as ProductListView,
   UserList as UserListView,
   Typography as TypographyView,
@@ -17,7 +17,7 @@ import {
   SignIn as SignInView,
   NotFound as NotFoundView,
   Login as LoginView,
-  SportsComplexes as SportsComplexesView,
+  // SportsComplexes as SportsComplexesView,
   SportsComplexesCreation as SportsComplexesCreationView,
   Fields as FieldsView,
   Features as FeaturesView,
@@ -30,10 +30,15 @@ import {
   BranchSettings as BranchSettingsView,
   BranchAccount as BranchAccountView,
   Landing as LandingView,
-  Requests as RequestsView
+  Requests as RequestsView,
+
+  // Mis imports
+  BranchOffices as BranchOffices,
+  BranchOfficeSettings as BranchOfficeSettings
+
 } from './views';
 
-const checkUserAuth = () => {};
+const checkUserAuth = () => { };
 
 const Routes = () => {
   return (
@@ -44,12 +49,38 @@ const Routes = () => {
       <Route component={RegisterView} exact path="/register" />
       <Route component={RegisterDoneView} exact path="/register-done" />
       <Route component={PasswordRecoveryView} exact path="/password-recovery" />
-      <RouteWithLayout
+      {/* <RouteWithLayout
         component={DashboardView}
         exact
         layout={MainLayout}
         path="/dashboard"
+      /> */}
+
+      {/* Rutas creadas por mi */}
+
+      <RouteWithLayout
+        component={BranchOffices}
+        exact
+        layout={MainLayout}
+        path="/branch-offices"
       />
+
+      <RouteWithLayout
+        component={() => <BranchOfficeSettings mode="create" />}
+        exact
+        layout={MainLayout}
+        path="/branch-offices/creation"
+      />
+
+      {/* <RouteWithLayout
+        component={SportsComplexesCreationView}
+        exact
+        layout={MainLayout}
+        path="/branch-offices/creation"
+      /> */}
+
+      {/*  */}
+
       <RouteWithLayout
         component={CalendarScheduleView}
         exact
@@ -99,12 +130,12 @@ const Routes = () => {
         layout={MainLayout}
         path="/products"
       />
-      <RouteWithLayout
+      {/* <RouteWithLayout
         component={SportsComplexesView}
         exact
         layout={MainLayout}
         path="/sports-complexes"
-      />
+      /> */}
       <RouteWithLayout
         component={SportsComplexesCreationView}
         exact
@@ -165,6 +196,7 @@ const Routes = () => {
         layout={MinimalLayout}
         path="/not-found"
       />
+
       <Redirect to="/not-found" />
     </Switch>
   );

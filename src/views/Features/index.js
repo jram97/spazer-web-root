@@ -119,6 +119,7 @@ const Features = props => {
     history.push('/sports-complexes/creation');
   };*/
 
+
   return (
     <div className={classes.root}>
       <Grid container spacing={4}>
@@ -136,6 +137,7 @@ const Features = props => {
             <span style={{ fontSize: 30 }}>8</span>
             <span style={{ marginLeft: 10 }}>Características</span>
           </Button>
+          {/* <Button title="8" subtitle="Caracteristicas" /> */}
         </Grid>
         <Grid item xs={12}>
           <TableContainer component={Paper}>
@@ -155,6 +157,7 @@ const Features = props => {
                       {row.code}
                     </StyledTableCell>
                     <StyledTableCell align="right">
+                      
                       <Button
                         // onClick={() => setFeaturesModalOpen(!featuresModalOpen)}
                         size="small"
@@ -356,13 +359,13 @@ const Features = props => {
                 justifyContent: 'center',
                 alignItems: 'center'
               }}>
-              <Button
+              {/* <Button
                 // onClick={() => saveField()}
                 size="large"
                 variant="contained"
                 color="primary">
                 Agregar Cancha
-              </Button>
+              </Button> */}
             </div>
           </div>
         </Fade>

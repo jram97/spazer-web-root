@@ -12,19 +12,31 @@ import {
   LatestProducts,
   LatestOrders
 } from './components';
+import { Button, Table } from 'components';
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(4)
+  },
+  contentButtons: {
+    display: 'flex'
   }
 }));
 
 const Dashboard = () => {
+  
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Grid
+
+      <div className={classes.contentButtons}>
+        <Button subtitle="Agregar sucursal" type="secundary" />
+        <Button title="8" subtitle="Total de sucursales" type="primary" />
+      </div>
+
+      <Table />
+      {/* <Grid
         container
         spacing={4}
       >
@@ -100,7 +112,7 @@ const Dashboard = () => {
         >
           <LatestOrders />
         </Grid>
-      </Grid>
+      </Grid> */}
     </div>
   );
 };

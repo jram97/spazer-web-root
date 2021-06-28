@@ -22,7 +22,7 @@ class Login extends React.Component {
     try {
       let result = await login(data);
       console.log('resultado', result);
-      this.props.history.push('/Dashboard');
+      this.props.history.push('/branch-offices');
     } catch (error) {
       console.log(error);
       this.setState({ snackbarState: true, messageToDisplay: error.error });
