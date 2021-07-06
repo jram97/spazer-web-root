@@ -1,9 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import PropTypes from 'prop-types';
 
 import { Container, EmptySection, Header, Image } from 'views/BranchOfficeSettings/components';
 
 import { makeStyles } from '@material-ui/styles';
+import { Alert } from 'components';
 
 
 const useStyles = makeStyles(() => ({
@@ -19,13 +20,22 @@ const Images = ({ images, onChange, onRemove }) => {
 
     const classes = useStyles();
 
+    const [error, setError] = useState({ error: false, msg: '' })
+
     const inputFileRef = useRef(null);
 
     const handleChangeImageSelected = ({ target: { files } }) => {
 
-        const url = URL.createObjectURL(files[0]);
+        if (images.length < 10) {
+            const url = URL.createObjectURL(files[0]);
 
-        onChange(url, files[0]);
+            onChange(url, files[0]);
+        }
+        else {
+            setError({ error: true, msg: 'Solo se permite un maximo de 10 imagenes' })
+        }
+
+
     };
 
     const handleRemoveImage = (i) => onRemove(i);
@@ -69,6 +79,12 @@ const Images = ({ images, onChange, onRemove }) => {
                 }
 
             </Container>
+            <Alert
+                open={error.error}
+                handleClose={() => setError({ error: false, msg: '' })}
+                title={error.msg}
+                type="error"
+            />
         </>
     )
 }

@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
+
+import { useGet } from 'hooks/useGet';
 
 import { Container, Header, Select } from 'views/BranchOfficeSettings/components';
 
-import { Grid, TextField} from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
 
-const General = ({ data, onChange, onSubmit }) => {
+const General = ({ data, onChange, onSubmit, title }) => {
+
+    const [loading, BussinesCategorys] = useGet('/businessCategory/getAllActive');
+    const [selectOptions, setSelectOptions] = useState([])
 
     const handleChange = ({ target: { name, value } }) => onChange(name, value);
+
+    useEffect(() => {
+
+        if (!loading) {
+            const newBussinesCategorys = BussinesCategorys.categories.map(({ _id, name }) => ({ label: name, value: _id }));
+            setSelectOptions(newBussinesCategorys);
+        }
+
+    }, [loading, BussinesCategorys])
 
     return (
         <>
             <Header
-                sectionName="Crea una nueva sucursal"
+                sectionName={title}
                 buttonText="Agregar sucursal"
                 onClickButton={onSubmit}
             />
@@ -79,18 +93,10 @@ const General = ({ data, onChange, onSubmit }) => {
                     <Select
                         title="Tipo de servicio"
                         name="typeServices"
-                        values={[
-                            { label: <em>Nada</em>, value: "" },
-                            { label: "Belleza", value: "Beauty" },
-                            { label: "Comida", value: "Eat" },
-                            { label: "Complejo", value: "Complex" },
-                            { label: "Cortes de cabello", value: "Cut" },
-                            { label: "Gimnasio", value: "Gym" },
-                            { label: "Sala de reuniones", value: "Meeting rooms" },
-                            { label: "SPA", value: "SPA" }
-                        ]}
+                        values={selectOptions}
                         onChange={handleChange}
                         value={data.typeServices}
+                        disabled={loading}
                     />
                 </Grid>
             </Container>
@@ -101,7 +107,12 @@ const General = ({ data, onChange, onSubmit }) => {
 General.propTypes = {
     data: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired
+    onSubmit: PropTypes.func.isRequired,
+    title: PropTypes.string
+}
+
+General.defaultProps = {
+    title: 'Crea una nueva sucursal'
 }
 
 export default General;

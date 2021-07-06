@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { useHistory } from 'react-router-dom';
+
 import { General, Features, Images, Services } from 'views/BranchOfficeSettings/Sections';
 
 import { Grid } from '@material-ui/core';
@@ -7,6 +9,8 @@ import { Grid } from '@material-ui/core';
 import axiosInstance from 'httpConfig';
 
 const Create = () => {
+
+    const history = useHistory();
 
     const [branchOffice, setBranchOffice] = useState({
         name: '',
@@ -16,14 +20,7 @@ const Create = () => {
         typeServices: '',
         images: [],
         services: [],
-        features: [
-            { id: 1, name: 'Wifi', isSelected: false, code: '_c_Wifi' },
-            { id: 2, name: 'Baños', isSelected: false, code: '_c_Baños' },
-            { id: 3, name: 'Bebidas', isSelected: false, code: '_c_Bebidas' },
-            { id: 4, name: 'Parqueo', isSelected: false, code: '_c_Parqueo' },
-            { id: 5, name: 'Restaurante', isSelected: false, code: '_c_Restaurante' },
-            { id: 6, name: 'Techado', isSelected: false, code: '_c_Techado' },
-        ]
+        features: []
     });
 
     const [viewImages, setViewImages] = useState([]);
@@ -70,15 +67,25 @@ const Create = () => {
 
     const handleAdd = (to, value) => setBranchOffice({ ...branchOffice, [to]: [...branchOffice[to], value] })
 
-    const handleEdit = (to, value) => setBranchOffice({ ...branchOffice, [to]: [...value] })
+    // const handleEdit = (to, value) => setBranchOffice({ ...branchOffice, [to]: [...value] })
 
-    const handleRemoveOrEdit = (to, value) => setBranchOffice({ ...branchOffice, [to]: [...value] });
+    const handleRemoveOrEdit = (to, id) => {
+
+        const arr = [...branchOffice[to]];
+
+        const newArr = arr.filter(val => val !== id);
+
+        setBranchOffice({ ...branchOffice, [to]: [...newArr] });
+
+    };
 
     const handleSubmit = () => {
 
         const { name, address, phone, schedules, typeServices, services, features } = branchOffice;
 
         const imagesAux = viewImages.map(({ file }) => file);
+
+        console.log(imagesAux);
 
         const form = new FormData();
 
@@ -87,7 +94,11 @@ const Create = () => {
         form.append("phone", phone);
         form.append("schedules", schedules);
         form.append("typeServices", typeServices);
-        form.append("images", imagesAux);
+
+        for (const file of imagesAux) {
+            form.append("images", file);
+        }
+
         form.append("services", services);
         form.append("features", features);
 
@@ -99,7 +110,10 @@ const Create = () => {
         }
 
         axiosInstance.post('/branchOffice/create', form, { headers })
-            .then(({ data }) => console.log(data))
+            .then(({ data }) => {
+                console.log(data);
+                history.push('/branch-offices')
+            })
             .catch(err => console.error(err));
 
     }
@@ -120,17 +134,14 @@ const Create = () => {
             />
 
             <Services
-                type={branchOffice.typeServices}
-                data={branchOffice.services}
                 onAdd={handleAdd}
                 onRemove={handleRemoveOrEdit}
-                onEdit={handleRemoveOrEdit}
             />
 
             <Features
-                data={branchOffice.features}
                 onAdd={handleAdd}
-                onEdit={handleEdit}
+                onRemove={handleRemoveOrEdit}
+                type={branchOffice.typeServices}
             />
 
         </Grid>

@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Create from './Views/Create';
-
 import { makeStyles } from '@material-ui/styles';
+import { Create, Edit } from './Views';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -19,6 +18,10 @@ const BranchOfficeSettings = ({ mode }) => {
         <div className={classes.root}>
             {
                 mode === "create" && (<Create />)
+            }
+
+            {
+                mode === "edit" && (<Edit />)
             }
         </div>
     )

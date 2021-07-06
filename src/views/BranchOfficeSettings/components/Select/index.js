@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const Selects = ({ title, onChange, values, name, value }) => {
+const Selects = ({ title, onChange, values, name, value, disabled }) => {
 
     const classes = useStyles();
 
@@ -28,6 +28,7 @@ const Selects = ({ title, onChange, values, name, value }) => {
                 value={value}
                 onChange={onChange}
                 name={name}
+                disabled={disabled}
             >
                 {
                     values.map(({ label, value }, index) => (
@@ -44,14 +45,16 @@ Selects.propTypes = {
     onChange: PropTypes.func,
     values: PropTypes.array.isRequired,
     name: PropTypes.string,
-    value: PropTypes.string
+    value: PropTypes.string,
+    disabled: PropTypes.bool
 }
 
 Selects.defaultProps = {
     onChange: () => {},
     name: '',
     value: '',
-    title: ''
+    title: '',
+    disabled: false
 }
 
 export default Selects

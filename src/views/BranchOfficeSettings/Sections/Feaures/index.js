@@ -1,9 +1,12 @@
 import { Grid, TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import { Button, Modal } from 'components'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types';
 import { Container, EmptySection, Header } from 'views/BranchOfficeSettings/components';
+import { useGet } from 'hooks/useGet';
+
+import { CircularProgress } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
     contentFeatures: {
@@ -24,7 +27,7 @@ const useStyles = makeStyles(() => ({
     }
 }))
 
-const Features = ({ data, onAdd, onEdit }) => {
+const Features = ({ type, onAdd, onRemove }) => {
 
     const classes = useStyles();
 
@@ -34,30 +37,62 @@ const Features = ({ data, onAdd, onEdit }) => {
         code: ''
     }
 
-    const [state, setState] = useState(initialState);
-    const [isOpenModal, setIsOpenModal] = useState(false)
+    const [state, setState] = useState(initialState); //Modal
+    const [isOpenModal, setIsOpenModal] = useState(false); //is Open Modal
+    const [features, setFeatures] = useState([])
+    const [loading, featuresGetByID] = useGet(`/feature/getByCategory/${type}`); //Get categorys
 
     const handleChange = ({ target: { name, value } }) => setState({ ...state, [name]: value });
 
-    const handleSelectedItem = index => {
+    // const handleSelectedItem = index => {
 
-        let featuresAux = data.map((feature, i) => {
+    //     let featuresAux = data.map((feature, i) => {
+    //         if (i === index) {
+    //             return { ...feature, isSelected: !feature.isSelected };
+    //         }
+    //         return { ...feature };
+    //     });
+
+    //     onEdit('features', featuresAux)
+    // }
+
+    const handleChangeCheck = index => {
+        let featuresAux = features.map((feature, i) => {
             if (i === index) {
                 return { ...feature, isSelected: !feature.isSelected };
             }
             return { ...feature };
         });
 
-        onEdit('features', featuresAux)
+        setFeatures(featuresAux);
+    }
+
+    const handleCheck = (index, id) => {
+        handleChangeCheck(index);
+        onAdd('features', id);
+    }
+
+    const handleNotCheck = (index, id) => {
+        handleChangeCheck(index);
+        onRemove('features', id)
     }
 
     const handleChangeStateModal = () => setIsOpenModal(!isOpenModal);
 
     const handleAdd = () => {
-        onAdd('features', { ...state, id: data.length });
-        setState(initialState);
-        handleChangeStateModal()
+        // onAdd('features', { ...state, id: data.length });
+        // setState(initialState);
+        // handleChangeStateModal()
     };
+
+    useEffect(() => {
+
+        if (!loading && type) {
+            // onEdit('features', featuresGetByID.features)
+            setFeatures(featuresGetByID.features)
+        }
+
+    }, [loading, featuresGetByID, type])
 
     return (
         <>
@@ -71,24 +106,45 @@ const Features = ({ data, onAdd, onEdit }) => {
             <Container>
 
                 {
-                    data.length === 0 && <EmptySection title="No se han agregado caracteristicas" />
+                    loading && (
+                        <CircularProgress color="secondary" />
+                    )
                 }
 
                 {
-                    data.length > 0 && (
-                        <div className={classes.contentFeatures}>
+                    !loading && (
+                        <>
                             {
-                                data.map(({ name, isSelected }, i) => (
-                                    <div key={`features_${name}_${i}`} className={classes.contentButton}>
-                                        <Button
-                                            subtitle={name}
-                                            type={isSelected ? 'primary' : 'inherit'}
-                                            onClick={() => handleSelectedItem(i)}
-                                        />
-                                    </div>
-                                ))
+                                features.length === 0 && (
+                                    <EmptySection title="No se han agregado caracteristicas" />
+                                )
                             }
-                        </div>
+
+                            {
+                                features.length > 0 && (
+                                    <div className={classes.contentFeatures}>
+                                        {
+                                            features.map(({ name, isSelected, _id }, i) => (
+                                                <div key={`features_${name}_${i}`} className={classes.contentButton}>
+                                                    <Button
+                                                        subtitle={name}
+                                                        type={isSelected ? 'primary' : 'inherit'}
+                                                        onClick={() => {
+                                                            if(isSelected){
+                                                                handleNotCheck(i, _id);
+                                                            }
+                                                            else{
+                                                                handleCheck(i, _id);
+                                                            }
+                                                        }}
+                                                    />
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                                )
+                            }
+                        </>
                     )
                 }
 
@@ -99,7 +155,7 @@ const Features = ({ data, onAdd, onEdit }) => {
                 onClose={handleChangeStateModal}
                 title="Creación de característica"
             >
-                <Grid container spacing={1} className={{ marginTop: 20 }}>
+                <Grid container spacing={1}>
                     <Grid item md={6} xs={12}>
                         <TextField
                             fullWidth
@@ -140,9 +196,9 @@ const Features = ({ data, onAdd, onEdit }) => {
 }
 
 Features.propTypes = {
-    data: PropTypes.array.isRequired,
     onAdd: PropTypes.func.isRequired,
-    onEdit: PropTypes.func.isRequired
+    onRemove: PropTypes.func.isRequired,
+    type: PropTypes.string.isRequired
 }
 
 export default Features;

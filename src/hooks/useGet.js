@@ -18,9 +18,11 @@ export const useGet = (rute) => {
             "access-token": token
         }
 
+        setState({ ...state, loading: true })
+
         Axios.get(rute, { headers })
-            .then(({ data }) => setState({loading: false, error: null, data}))
-            .catch(error => setState({loading: false, error, data: []}) )
+            .then(({ data }) => setState({ loading: false, error: null, data }))
+            .catch(error => setState({ loading: false, error, data: [] }))
 
     }, [rute])
 

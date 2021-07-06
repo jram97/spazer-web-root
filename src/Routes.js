@@ -72,6 +72,13 @@ const Routes = () => {
         path="/branch-offices/creation"
       />
 
+      <RouteWithLayout
+        component={() => <BranchOfficeSettings mode="edit" />}
+        exact
+        layout={MainLayout}
+        path="/branch-offices/edit/:id"
+      />
+
       {/* <RouteWithLayout
         component={SportsComplexesCreationView}
         exact

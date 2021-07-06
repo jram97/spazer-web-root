@@ -33,21 +33,23 @@ const BranchOffices = () => {
 
     const handleClick = e => history.push('/branch-offices/creation');
 
+    const handleEditClick = ({ row: { _id } }) => history.push(`/branch-offices/edit/${_id}`);
+
     useEffect(() => {
-        
-        if(!loading){
-            console.log(data);
-            const info = data.branchOffices.map(({name, _id}, index) => {
+
+        if (!loading) {
+            
+            const info = data.branchOffices.map(({ name, _id }, index) => {
 
                 const number = index + 1;
 
                 const numberString = number < 10 ? `0${number}` : String(number);
 
-                return {number: numberString, name, _id}
+                return { number: numberString, name, _id }
 
             })
 
-            setBranchOffice({loading: false, data: info})
+            setBranchOffice({ loading: false, data: info })
 
         }
 
@@ -72,7 +74,7 @@ const BranchOffices = () => {
                             <Button title={String(branchOffice.data.length)} subtitle="Total de sucursales" type="primary" />
                         </div>
 
-                        <Table data={branchOffice.data} type="sucursal" />
+                        <Table data={branchOffice.data} type="sucursal" onClickEdit={handleEditClick} />
                     </>
                 )
             }
